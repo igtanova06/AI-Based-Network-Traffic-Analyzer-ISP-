@@ -1,207 +1,249 @@
-🚨 AI-Based Network Intrusion Detection System (IDS)
-A real-time, AI-driven system that monitors and classifies network traffic into normal or suspicious using Deep Learning models trained on modern intrusion detection datasets.
+# 🧠 AI-Based Network Intrusion Detection System (IDS)
 
-Goal: Build a complete end-to-end IDS pipeline using
-🐍 Python | 🤖 TensorFlow/Keras | 🧠 Scapy | 📊 Wireshark
+A **real-time, AI-driven Intrusion Detection System** that monitors and classifies network traffic as *normal* or *suspicious* using Deep Learning models trained on modern intrusion detection datasets.
 
-📖 Table of Contents
-Project Summary
+---
 
-Objectives
+## 📖 Table of Contents
+- [Project Summary](#-project-summary)
+- [Objectives](#-objectives)
+- [System Architecture](#-system-architecture)
+- [Core Modules](#-core-modules)
+- [Technologies Used](#-technologies-used)
+- [Dataset Information](#-dataset-information)
+- [Installation Guide](#-installation-guide)
+- [Project Structure](#-project-structure)
+- [How to Run](#-how-to-run)
+- [Demo Scenario](#-demo-scenario)
+- [Results](#-results)
+- [Team Members](#-team-members)
+- [Future Development](#-future-development)
+- [License](#-license)
 
-System Architecture
+---
 
-Core Modules
+## 🧠 Project Summary
 
-Technologies Used
+The **AI-Based IDS** provides a modular, end-to-end cybersecurity tool for detecting anomalies and intrusions in real-time network traffic.
 
-Dataset Information
+✅ **Detects**: DoS, DDoS, Port Scans, Brute-force, and Botnet  
+✅ **Trained on**: CICIDS2018, UNSW-NB15, and IoT attack datasets  
+✅ **Real-time packet inspection**: via Scapy  
+✅ **Web dashboard**: built with Flask and Chart.js  
 
-Installation Guide
+---
 
-Project Structure
+## 🎯 Objectives
+- Capture, analyze, and classify live network traffic  
+- Train and deploy a TensorFlow-based intrusion detection model  
+- Develop a web-based dashboard for real-time monitoring  
+- Ensure modular and scalable system design  
 
-How to Run
+---
 
-Demo Scenario
+## 🧩 System Architecture
+```
+┌─────────────────────┐
+│ Wireshark / Scapy   │ ← Packet Capture
+└──────────┬──────────┘
+           │
+[Preprocessing + Features]
+           │
+┌──────────▼──────────┐
+│ TensorFlow/Keras ML │ ← Model Classification
+└──────────┬──────────┘
+           │
+┌──────────▼──────────┐
+│ Alert & Response     │ ← Logs & Alerts
+└──────────┬──────────┘
+           │
+┌──────────▼──────────┐
+│ Flask Dashboard      │ ← Visualization
+└─────────────────────┘
+```
 
-Results
+---
 
-Team Members
+## ⚙️ Core Modules
 
-Future Development
+| **Module** | **Function** | **Tools** |
+|-------------|---------------|-----------|
+| 1️⃣ Data Collection | Capture packets or import .pcap files | Scapy, PyShark |
+| 2️⃣ Preprocessing & Feature Extraction | Clean, normalize, extract features | Pandas, NumPy, Scikit-learn |
+| 3️⃣ AI Detection Engine | Classify traffic using DL models | TensorFlow, Keras |
+| 4️⃣ Real-time Monitoring | Continuous traffic analysis | Scapy, Threading |
+| 5️⃣ Alert System | Log & notify suspicious activity | Logging, JSON |
+| 6️⃣ Visualization Dashboard | Monitor IDS activity visually | Flask, Chart.js |
+| 7️⃣ Evaluation Module | Evaluate performance metrics | Scikit-learn, Seaborn |
 
-License
+---
 
-🧠 Project Summary
-The AI-Based IDS (Intrusion Detection System) project delivers a real-time network monitoring tool that leverages machine learning and deep learning for detecting unusual activities from live network traffic.
+## 💻 Technologies Used
 
-✅ Detects attacks such as DoS, DDoS, Port Scans, and Brute-force attempts
-✅ Uses datasets like CICIDS2018 and TabularIoTAttack-2024
-✅ Real-time packet inspection with Scapy
-✅ Flask-based web dashboard for monitoring
+| **Category** | **Tools** |
+|---------------|-----------|
+| Programming Language | Python 3.8+ |
+| AI / ML Frameworks | TensorFlow, Keras, Scikit-learn |
+| Network Tools | Scapy, Wireshark, PyShark |
+| Web Framework | Flask, Chart.js |
+| Data Visualization | Matplotlib, Seaborn |
 
-🎯 Objectives
-Capture, analyze, and classify live network traffic.
+---
 
-Train and deploy a TensorFlow model for intrusion detection.
+## 🗃 Dataset Information
 
-Develop an interactive web dashboard for security monitoring.
+### 📚 Primary Dataset: **CICIDS2018**
+Includes benign and malicious traffic such as:
+- DoS, Brute Force, Botnet, Heartbleed, Web Attack
 
-Provide modular design for real-time use and future upgrades.
+### ⚙️ Optional Datasets:
+- **UNSW-NB15** — TCP/IP layer attacks  
+- **TabularIoTAttack-2024** — IoT attack simulation  
+- **TON_IoT 2023** — IoT telemetry dataset  
 
-🧩 System Architecture
-text
-     ┌─────────────────────┐
-     │ Wireshark / Scapy   │ ← Packet Capture
-     └──────────┬──────────┘
-                │
-        [Preprocessing + Features]
-                │
-     ┌──────────▼──────────┐
-     │ TensorFlow/Keras ML │ ← Model Classification
-     └──────────┬──────────┘
-                │
-     ┌──────────▼──────────┐
-     │ Alert & Response     │ ← Logs & Alerts
-     └──────────┬──────────┘
-                │
-     ┌──────────▼──────────┐
-     │ Flask Dashboard     │ ← Visualization
-     └─────────────────────┘
-⚙️ Core Modules
-#	Module	Function	Tools
-1	Data Collection	Capture packets via Scapy or import Wireshark .pcap	Scapy, PyShark
-2	Preprocessing & Feature Extraction	Clean data, extract metrics, normalize	Pandas, NumPy, Scikit-learn
-3	AI Detection Engine	Classify traffic using Deep Learning models	TensorFlow, Keras
-4	Real-time Monitoring	Analyze continuous traffic flows	Scapy, Threading
-5	Alert System	Log and display suspicious activity	Logging, JSON
-6	Visualization Dashboard	Monitor IDS activity visually	Flask, Chart.js
-7	Evaluation Module	Measure precision, recall, and F1-score	Scikit-learn, Seaborn
-🧠 Technologies Used
-Category	Tools
-Programming Language	Python 3.8+
-AI/ML Frameworks	TensorFlow, Keras, Scikit-learn
-Network Tools	Scapy, Wireshark, PyShark
-Frontend / Web	Flask, Chart.js
-Data Visualization	Matplotlib, Seaborn
-🗃 Dataset Information
-📚 Primary Dataset
-CICIDS2018 (Canadian Institute for Cybersecurity)
-Contains benign traffic and modern attack types:
+---
 
-DoS, Brute Force, Botnet, Heartbleed, Web Attack
+## 📦 Installation Guide
 
-⚙️ Optional Datasets
-UNSW-NB15 — modern TCP/IP layer attacks
-
-CIC-BCCC-NRC TabularIoTAttack-2024 — IoT-specific attack simulation
-
-TON_IoT 2023 Dataset — real IoT-device telemetry dataset
-
-📦 Installation Guide
-Step 1: Clone the Repository
-bash
+### Step 1: Clone Repository
+```bash
 git clone https://github.com/yourteam/AI-Based-IDS.git
 cd AI-Based-IDS
-Step 2: Setup Python Environment
-bash
+```
+
+### Step 2: Setup Python Environment
+```bash
 python -m venv venv
-source venv/bin/activate         # (Linux/Mac)
-venv\Scripts\activate            # (Windows)
-Step 3: Install Requirements
-bash
+source venv/bin/activate       # Linux/Mac
+venv\Scripts\activate          # Windows
+```
+
+### Step 3: Install Requirements
+```bash
 pip install -r requirements.txt
-Step 4: Verify TensorFlow & Scapy
-bash
+```
+
+### Step 4: Verify Setup
+```bash
 python -c "import scapy; import tensorflow; print('Setup OK!')"
-📁 Project Structure
-text
+```
+
+---
+
+## 📁 Project Structure
+```
 AI-Based-IDS/
 ├── data/
-│   ├── raw/                  # Wireshark .pcap or dataset CSV
-│   ├── processed/            # Clean and preprocessed data
+│   ├── raw/              # Wireshark .pcap / dataset CSV
+│   ├── processed/        # Cleaned data
 │   └── features.npy
 ├── models/
-│   ├── best_model.h5         # Trained model
-│   └── scaler.pkl            # Scaler for normalization
+│   ├── best_model.h5     # Trained model
+│   └── scaler.pkl
 ├── notebooks/
 │   ├── 01_preprocessing.ipynb
 │   ├── 02_training.ipynb
-│   ├── 03_evaluation.ipynb
+│   └── 03_evaluation.ipynb
 ├── src/
-│   ├── packet_sniffer.py     # Scapy real-time capture
-│   ├── feature_extractor.py  # Build features
-│   ├── detection_engine.py   # TensorFlow-based model
-│   ├── realtime_ids.py       # Integration for live monitoring
-│   └── alert_system.py       # Alerts log and save
+│   ├── packet_sniffer.py
+│   ├── feature_extractor.py
+│   ├── detection_engine.py
+│   ├── realtime_ids.py
+│   └── alert_system.py
 ├── app/
-│   ├── app.py                # Flask dashboard API
+│   ├── app.py
 │   └── templates/
 │       └── dashboard.html
 ├── requirements.txt
 ├── README.md
 └── presentation.pptx
-🚀 How to Run
-🧩 Option 1: Train and Evaluate
-bash
+```
+
+---
+
+## 🚀 How to Run
+
+### 🧩 Option 1: Train & Evaluate Model
+```bash
 python notebooks/02_training.ipynb
-📡 Option 2: Real-time Detection
-bash
+```
+
+### 📡 Option 2: Real-Time Detection
+```bash
 sudo python src/realtime_ids.py
-🖥️ Option 3: Start Flask Dashboard
-bash
+```
+
+### 🖥️ Option 3: Run Flask Dashboard
+```bash
 python app/app.py
-Open browser at: http://127.0.0.1:5000
+```
+Then open [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-🎬 Demo Scenario
-Step-by-step guide for live demonstration:
-Open two terminals:
+---
 
-Terminal 1: Run IDS
+## 🎬 Demo Scenario
 
-bash
+**Terminal 1 — Run IDS:**
+```bash
 sudo python src/realtime_ids.py
-Terminal 2: Simulate attack
+```
 
-bash
+**Terminal 2 — Simulate Attack:**
+```bash
 nmap -sS 192.168.1.5
-Observe terminal output:
+```
 
-text
+**Output Example:**
+```
 ✅ Packet #100: 192.168.1.20 → 8.8.8.8 [TCP] - Normal
-⚠️  ALERT #1: Potential Scan Attack Detected
-Confidence: 95.8%
-Open browser → Flask Dashboard:
-Shows alert count, active packets, and log visualization.
+⚠️ ALERT #1: Potential Scan Attack Detected | Confidence: 95.8%
+```
 
-📊 Results
-Metric	Value
-Accuracy	94.5%
-Precision	91.3%
-Recall	92.1%
-F1-Score	91.7%
-Detection Time	< 2 seconds per packet
-✅ Model: DNN (3 Hidden Layers, ReLU activation)
-✅ Dataset: CICIDS2018 (Balanced subset of 200k records)
+**Dashboard:**  
+Visualizes alert count, active connections, and historical logs in real time.
 
-👥 Team Members
-Name	Role	Responsibility
-Member 1	Team Leader / ML Engineer	Deep learning model, fine-tuning
-Member 2	Data Engineer	Wireshark capture, data preprocessing
-Member 3	Backend Developer	Scapy integration, real-time module
-Member 4	Frontend Developer	Flask & Chart.js dashboard
-Member 5	QA / Reporter	Testing, report, documentation
-🔮 Future Development
-🔐 Add IP blacklisting & firewall blocking
+---
 
-☁️ Deploy IDS to cloud (Docker + Streamlit)
+## 📊 Results
 
-📊 Integrate real-time Grafana dashboard
+| **Metric** | **Value** |
+|-------------|------------|
+| Accuracy | 94.5% |
+| Precision | 91.3% |
+| Recall | 92.1% |
+| F1-Score | 91.7% |
+| Detection Time | < 2 seconds per packet |
 
-🧬 Build Reinforcement Learning module for adaptive detection
+✅ Model: DNN (3 Hidden Layers, ReLU)  
+✅ Dataset: CICIDS2018 (200k balanced samples)
 
+---
 
-💡 Summary:
-This repository provides a modular, AI-powered Intrusion Detection System for academic and research use. With Python and TensorFlow integration, it supports both real-time monitoring and offline analysis, making it an ideal project for university courses or cybersecurity training.
+## 👥 Team Members
 
+| **Name** | **Role** | **Responsibilities** |
+|-----------|-----------|----------------------|
+| Member 1 | Team Leader / ML Engineer | Model development & tuning |
+| Member 2 | Data Engineer | Data preprocessing & Wireshark capture |
+| Member 3 | Backend Developer | Real-time Scapy integration |
+| Member 4 | Frontend Developer | Flask dashboard, Chart.js |
+| Member 5 | QA / Reporter | Testing, reporting, documentation |
+
+---
+
+## 🔮 Future Development
+
+- 🔐 Add IP blacklisting & firewall auto-block  
+- ☁️ Deploy IDS via Docker or Streamlit  
+- 📊 Integrate with Grafana for live analytics  
+- 🧬 Implement Reinforcement Learning for adaptive detection  
+
+---
+
+## 📜 License
+This project is released under the **MIT License** — free for academic and research use.
+
+---
+
+### 💡 Summary
+> A modular, AI-powered Intrusion Detection System for real-time and offline analysis. Ideal for research, education, and cybersecurity training — blending Deep Learning, Python, and real-world network monitoring.
